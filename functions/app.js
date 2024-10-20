@@ -1,7 +1,7 @@
 const bodyParser = require("body-parser");
 const env = require("dotenv");
 const express = require("express");
-const userRoute = require("./routes/user_routes");
+const userRoute = require("../routes/user_routes");
 require('./config/db');
 
 
@@ -18,6 +18,3 @@ app.use("/.netlify/functions/app", userRoute);
 module.exports.handler = serverless(app);
 
 
-app.listen(PORTNUMBER, () => {
-    console.log(`Server is up and running of PORT: ${PORTNUMBER}`);
-})

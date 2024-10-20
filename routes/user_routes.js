@@ -1,5 +1,5 @@
 const express = require("express");
-const { registrationValidate, loginValidate, forgotPassValidate, vOtpValidate, changePassValidate } = require("../modules/utils/req-validation");
+const { registrationValidate, forgotPassValidate, vOtpValidate, changePassValidate, loginValidate } = require("../modules/utils/req-validation");
 const { userRegistration, userLogin, forgotPassword, verifyOtp, changeForgottenPassword, completeTvData } = require("../modules/controller/user-controller");
 const { ensureAuthenticated, ensureChange } = require("../modules/utils/auth");
 const { confirmTvConnection, confirmationFromTv, tvRegister, postFromA, postFromB } = require("../modules/controller/tv-socket-controller");
