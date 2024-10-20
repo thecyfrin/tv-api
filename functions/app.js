@@ -13,7 +13,8 @@ const PORTNUMBER = process.env.PORT || 8080;
 app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
-app.use('/api/v1', userRoute);
+app.use("/.netlify/functions/app", userRoute);
+
 module.exports.handler = serverless(app);
 
 
