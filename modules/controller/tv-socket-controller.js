@@ -45,6 +45,8 @@ const confirmationFromTv = (req,res) => {
 // Handle post request from App A
 const postFromA = (req, res) => {
   // Notify App B through WebSocket
+  console.log("from app");
+
   clients.forEach(client => {
     client.send(JSON.stringify({event: 'getAppUsage', tvId: req.body.tvId, data: "need app usage" }));
   });
@@ -53,8 +55,8 @@ const postFromA = (req, res) => {
 
 // Handle post request from App B
 const postFromB = (req, res) => {
+  console.log("from tv");
   console.log(req.params.userId);
-  console.log(req.body);
   // Notify App A that App B has responded
   clients.forEach(client => {
     client.send(JSON.stringify({event: 'responseAppUsage', userId: req.params.userId, data: req.body }));
